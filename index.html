@@ -1,13 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KNOWRTH ENTERPRISES LLP</title>
+    <title>KNOWRTH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        body {
+            background: #8BD3BF;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .block {
+            display: flex;
+            justify-content: center;
+            height: calc(100vh - 50px);
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .label1 {
+            color: #2B122A;
+            font-weight: bold;
+            font-size: 1.2em;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        
+        .label2 {
+            font-size: .7em;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        img {
+            width: 300px
+        }
+        
+        .animate__bounce {
+            display: inline-block;
+            margin: 0 0.5rem;
+            animation: bounce;
+            animation-duration: 5s;
+        }
+        
+        .animate__zoomIn {
+            animation: zoomIn;
+            display: inline-block;
+            margin: 0 0.5rem;
+            animation-duration: 5s;
+        }
+    </style>
 </head>
-<body style="background-color:black;color:white;">
-    <h3>KNOWRTH ENTERPRISES LLP <sub><i>Applying Knowledge Creating Value</i> </sub> </h3>
 
+<body>
+    <div class="block">
+        <img class="animate__zoomIn" src="./logo.png" alt="">
+        <div class="label1 animate__bounce">Applying knowledge, Creating value</div>
+    </div>
+    <div class="label2"> &#169; 2023, Knowrth Enterprises LLP</div>
 </body>
+
 </html>
