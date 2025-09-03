@@ -1,66 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KNOWRTH</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>Knowrth - Applied Intelligence. Engineered Value.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            background: #8BD3BF;
-            display: flex;
-            flex-direction: column;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
         
-        .block {
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+        
+        .parallax-container {
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            perspective: 1px;
+        }
+        
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        
+        .parallax-back {
+            transform: translateZ(-1px) scale(2);
+        }
+        
+        .parallax-base {
+            transform: translateZ(0);
+        }
+        
+        .hero {
+            height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            height: calc(100vh - 50px);
             align-items: center;
-            flex-direction: column;
-        }
-        
-        .label1 {
-            color: #2B122A;
-            font-weight: bold;
-            font-size: 1.2em;
-            font-family: 'Roboto Condensed', sans-serif;
-        }
-        
-        .label2 {
-            font-size: .7em;
-            margin-top: 20px;
             text-align: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%233b82f6" fill-opacity="0.2" d="M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,224C672,235,768,181,864,160C960,139,1056,149,1152,165.3C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.7;
+        }
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
         }
         
-        img {
-            width: 300px
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
         }
         
-        .animate__bounce {
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #3b82f6;
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #e2e8f0;
+            font-weight: 300;
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e40af;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #3b82f6;
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+        
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .industry-card {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .industry-icon {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .about-content {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 3rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-content {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .contact-button {
             display: inline-block;
-            margin: 0 0.5rem;
-            animation: bounce;
-            animation-duration: 5s;
+            background: #3b82f6;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 2rem;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         
-        .animate__zoomIn {
-            animation: zoomIn;
-            display: inline-block;
-            margin: 0 0.5rem;
-            animation-duration: 5s;
+        .contact-button:hover {
+            background: #2563eb;
+        }
+        
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
         }
     </style>
 </head>
-
 <body>
-    <div class="block">
-        <img class="animate__zoomIn" src="./logo.png" alt="">
-        <div class="label1 animate__bounce">Applying knowledge, Creating value</div>
-    </div>
-    <div class="label2"> &#169; 2023, Knowrth Enterprises LLP</div>
-</body>
+    <div class="parallax-container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="logo">KNOWRTH</h1>
+                <p class="tagline">Applied Intelligence. Engineered Value.</p>
+                <p>In an era defined by exponential change, competitive advantage is no longer found in data alone, but in the ability to transform it into decisive action.</p>
+            </div>
+        </section>
 
+        <!-- Services Section -->
+        <section class="section">
+            <h2 class="section-title">Next-Generation Services</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">We deliver end-to-end capabilities to future-proof your enterprise, from core modernization to disruptive innovation.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Generative AI & Agentic Systems</h3>
+                    <p>Move beyond automation into creation. We engineer bespoke generative AI models and autonomous agentic workflows that synthesize information, drive hyper-personalization, and unlock unprecedented efficiencies.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Strategic Digital Transformation</h3>
+                    <p>Evolve your digital core with confidence. Our holistic approach to cloud-native transformation ensures seamless, secure migrations and the modernization of legacy systems.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>SaaS & Cloud-Native Development</h3>
+                    <p>Launch and scale disruptive software products. We specialize in building robust, multi-tenant SaaS platforms and cloud-native applications using microservices architectures.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries Section -->
+        <section class="section" style="background-color: #f1f5f9; padding: 5rem 2rem;">
+            <h2 class="section-title">Domain-Led Expertise</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Our solutions are informed by deep vertical knowledge, ensuring they deliver not just technical performance, but tangible business outcomes.</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Financial Markets & Quantitative Analytics</h3>
+                    <p>Navigate volatility with algorithmic precision. We build high-performance, low-latency trading systems, advanced risk modeling frameworks, and regulatory technology solutions.</p>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce & Digital Retail</h3>
+                    <p>Reimagine the customer journey. We develop intelligent, omni-channel commerce platforms powered by AI-driven personalization and dynamic pricing engines.</p>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Logistics & Intelligent Supply Chains</h3>
+                    <p>Optimize the flow of goods and information. Our solutions bring transparency and predictability to complex supply networks with IoT-enabled tracking and predictive logistics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section">
+            <h2 class="section-title">The Knowrth Principle</h2>
+            
+            <div class="about-content">
+                <p>Knowledge is the most valuable asset in the digital economy, yet its true potential is only realized when it is expertly applied. At Knowrth, we are a collective of engineers, data scientists, and strategists dedicated to this principle.</p>
+                <br>
+                <p>We partner with visionary leaders to deconstruct complexity, architect elegant solutions, and engineer tangible value—turning strategic insight into a sustainable competitive advantage.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section" style="background-color: #f1f5f9; padding: 5rem 2rem;">
+            <h2 class="section-title">Initiate Transformation</h2>
+            
+            <div class="contact-content">
+                <p>The future belongs to those who build it. Let's collaborate to define and deliver your next chapter of growth.</p>
+                <a href="#" class="contact-button">Contact Us</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2023 Knowrth. All rights reserved.</p>
+            <p>Applying Knowledge, Creating Value.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple parallax effect
+        document.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-back');
+            
+            parallaxElements.forEach(function(element) {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
 </html>
